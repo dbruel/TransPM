@@ -1,0 +1,25 @@
+"outcome","sample_size","AUC","calibration.slope","calibration.intercept","NB","NBDall"
+"UK DCD dichotomized",10,0,0,0,0,0
+"UK DCD dichotomized",50,0,0,0,0,0
+"UK DCD dichotomized",200,0,0,0,0,0
+"UK DCD dichotomized",400,0,0,0,0,0
+"UK DCD dichotomized",600,0,0,0,0,0
+"UK DCD dichotomized",800,0,0,0,0,0
+"UK DCD dichotomized",1000,0,0,0,0,0
+"UK DCD dichotomized",1200,0,0,0,0,0
+"UK DCD dichotomized",1400,0,0,0,0,0
+"UK DCD dichotomized",1600,0,0,0,0,0
+"UK DCD dichotomized",1800,0,0,0,0,0
+"UK DCD dichotomized",2000,0,0,0,0,0
+"Swisstransplant",10,0,0,0,0,0
+"Swisstransplant",50,0,0,0,0,0
+"Swisstransplant",200,0,0,0,0,0
+"Swisstransplant",400,0,0,0,0,0
+"Swisstransplant",600,0,0,0,0,0
+"Swisstransplant",800,0,0,0,0,0
+"Swisstransplant",1000,0,0,0,0,0
+"Swisstransplant",1200,0,0,0,0,0
+"Swisstransplant",1400,0,0,0,0,0
+"Swisstransplant",1600,0,0,0,0,0
+"Swisstransplant",1800,0,0,0,0,0
+"Swisstransplant",2000,0,0,0,0,0
