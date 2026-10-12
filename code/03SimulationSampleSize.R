@@ -106,25 +106,66 @@ Analyse <- function(condition, dat, fixed_objects) {
     dat$r.meld > 25,
     dat$retp == TRUE
   )
-  pat_scores <- mat %*% points |> 
+  pat_scores <- mat %*% points |>
     c()
-  
+
   # Get the outcomes
   outcomes <- dat$failure == TRUE
-  
+
   # Calculate the AUC
   AUC <- suppressMessages(auc(outcomes, pat_scores))
+
+  # # Calibration slope and intercept
+  # df.calibration <- cut(pat_scores, breaks = c(0, 5, 10, 27), include.lowest = TRUE) |>
+  #   as.numeric() |>
+  #   recode(`1` = mean(c(0,5)), `2` = mean(c(6,10)), `3` = mean(c(11,27))) |>
+  #   {\(x) x/27}() |>
+  #   {\(x) data.frame(prediction.cat = x, outcome = outcomes)}() |>
+  #   aggregate(outcome ~ prediction.cat, FUN = mean)
+  # fit <- lm(outcome ~ prediction.cat, data = df.calibration)
+  # calibration.slope <- fit$coefficients[2] |> unname()
+  # calibration.intercept <- fit$coefficients[1] |> unname()
+  # 
+  # # Net Benefit
+  # pt <- 0.8 # Success Threshold for transplanting
+  # TP <- sum(!outcomes & pat_scores <= 10)
+  # FP <- sum(outcomes & pat_scores <= 10)
+  # NB <- (TP - FP * pt/(1-pt)) / length(outcomes)
   
-  # Calibration slope and intercept
-  df.calibration <- cut(pat_scores, breaks = c(0, 5, 10, 27), include.lowest = TRUE) |> 
-    as.numeric() |> 
-    recode(`1` = mean(c(0,5)), `2` = mean(c(6,10)), `3` = mean(c(11,27))) |>
-    {\(x) x/27}() |> 
-    {\(x) data.frame(prediction.cat = x, outcome = outcomes)}() |> 
-    aggregate(outcome ~ prediction.cat, FUN = mean)
-  fit <- lm(outcome ~ prediction.cat, data = df.calibration)
-  calibration.slope <- fit$coefficients[2] |> unname()
-  calibration.intercept <- fit$coefficients[1] |> unname()
+  # Function to calculate calibration intercept and slope
+  # with epsilon for continuity correction (if predicted probabilities can be 0 or 1)
+  calibration <- function(p, y, eps = 1e-8) {
+    p <- pmin(pmax(p, eps), 1 - eps)
+    lp <- qlogis(p)
+    
+    # Calibration slope and intercept
+    fit <- glm(y ~ lp, family = binomial())
+    
+    # Calibration in the large (CITL)
+    fit_citl <- glm(y ~ 1, offset = lp, family = binomial())
+    
+    c(
+      intercept = unname(coef(fit)[1]),
+      slope = unname(coef(fit)[2]),
+      citl = unname(coef(fit_citl)[1])
+    )
+  }
+  
+  # Calibration slope and intercept (linear)
+  obs <- outcomes
+  pred <- pat_scores/27
+  cal <- calibration(pred, obs)
+  calibration.slope <- cal["slope"] |> unname()
+  calibration.intercept <- cal["intercept"] |> unname()
+  citl <- cal["citl"] |> unname()
+  
+  # Calibration slope and intercept (logistic)
+  obs <- outcomes
+  pred <- plogis(pat_scores-27/2)
+  cal <- calibration(pred, obs)
+  calibration.slope.logit <- cal["slope"] |> unname()
+  calibration.intercept.logit <- cal["intercept"] |> unname()
+  citl.logit <- cal["citl"] |> unname()
   
   # Net Benefit
   pt <- 0.8 # Success Threshold for transplanting
@@ -138,11 +179,39 @@ Analyse <- function(condition, dat, fixed_objects) {
   NB_all <- (TP_all - FP_all * pt/(1-pt)) / length(outcomes)
   NBDall <- NB - NB_all
   
+  # Net Benefit 2
+  pt <- 0.7 # Success Threshold for transplanting
+  NB.7 <- (TP - FP * pt/(1-pt)) / length(outcomes)
+  # Difference of NB to transplant all and transplant none
+  NB_all <- (TP_all - FP_all * pt/(1-pt)) / length(outcomes)
+  NBDall.7 <- NB.7 - NB_all
+  
+  # Net Benefit 3
+  pt <- 0.75 # Success Threshold for transplanting
+  NB.75 <- (TP - FP * pt/(1-pt)) / length(outcomes)
+  # Difference of NB to transplant all and transplant none
+  NB_all <- (TP_all - FP_all * pt/(1-pt)) / length(outcomes)
+  NBDall.75 <- NB.75 - NB_all
+
+  # Difference of NB to transplant all and transplant none
+  TP_all <- sum(!outcomes)
+  FP_all <- sum(outcomes)
+  NB_all <- (TP_all - FP_all * pt/(1-pt)) / length(outcomes)
+  NBDall <- NB - NB_all
+
   ret <- nc(AUC = AUC,
             calibration.slope = calibration.slope,
             calibration.intercept = calibration.intercept,
             NB = NB,
-            NBDall = NBDall)
+            NBDall = NBDall,
+            citl = citl,
+            citl.logit = citl.logit,
+            calibration.slope.logit = calibration.slope.logit,
+            calibration.intercept.logit = calibration.intercept.logit,
+            NB.7 = NB.7,
+            NBDall.7 = NBDall.7,
+            NB.75 = NB.75,
+            NBDall.75 = NBDall.75)
   ret
 }
 
@@ -155,15 +224,21 @@ Summarise <- function(condition, results, fixed_objects) {
 
 # Simulation run ----------------------------------------------------------
 
-res <- runSimulation(design=Design, replications=n.sim, generate=Generate, 
-                     analyse=Analyse, summarise=Summarise, seed = rep(8, nrow(Design)))
-sim.object <- SimExtract(res, what = 'summarise')
+res <- runSimulation(design=Design,
+                     replications=n.sim,
+                     generate=Generate, 
+                     analyse=Analyse,
+                     summarise=Summarise,
+                     seed = rep(8, nrow(Design)),
+                     parallel = TRUE)
+sim.object <- SimExtract(res, what = 'results')
 
 
 # Missingness report ------------------------------------------------------
 
 sim.object |> 
   bind_rows() |> 
+  select(AUC, calibration.slope, calibration.intercept, NB, NBDall) |> 
   cbind(Design[rep(1:nrow(Design), each = n.sim)]) |> 
   group_by(outcome, sample_size) |> 
   summarise(across(everything(), ~sum(is.na(.)))) |> 
@@ -185,15 +260,16 @@ sim.object |>
 ## Summary of simulation results ---------------
 sim.results <- sim.object |> 
   bind_rows() |> 
+  select(AUC, calibration.slope, calibration.intercept, NB, NBDall, citl) |>
   cbind(Design[rep(1:nrow(Design), each = n.sim)]) |> 
   pivot_longer(cols = -all_of(names(Design)),
                names_to = "measure",
                values_to = "value") |> 
   mutate(
     measure = factor(measure,
-                     levels = c("calibration.intercept", "calibration.slope",
+                     levels = c("calibration.intercept", "calibration.slope", "citl",
                                 "NB", "NBDall", "AUC"),
-                     labels = c("Calibration intercept", "Calibration slope",
+                     labels = c("Calibration intercept", "Calibration slope", "CITL",
                                 "Net benefit to transplant no one",
                                 "Net benefit to transplant all",
                                 "AUC")),
@@ -215,4 +291,32 @@ suppressWarnings(
   kable(sim.results, format = "html", digits = 3) |> 
     kable_styling(full_width = F, position = "left") |> 
     save_kable("results/tables/ResultsSampleSize.html", self_contained = TRUE)
+)
+
+# Sensitivity analysis results
+sens.results <- sim.object |> 
+  bind_rows() |> 
+  select(calibration.slope, calibration.intercept, calibration.slope.logit, calibration.intercept.logit, citl, citl.logit, NB, NBDall, NB.75, NBDall.75, NB.7, NBDall.7) |> 
+  cbind(Design[rep(1:nrow(Design), each = n.sim)]) |> 
+  pivot_longer(cols = -all_of(names(Design)),
+               names_to = "measure",
+               values_to = "value") |> 
+  mutate(
+    outcome = factor(outcome,
+                     levels = c("UKDCD_dichot", "Swisstransplant"))
+  ) |> 
+  group_by(sample_size, measure, outcome) |> 
+  summarise(median = median(value),
+            lower = quantile(value, 0.025),
+            upper = quantile(value, 0.975),
+            MCse = sqrt(var(value)/n.sim),
+            n_sim = n()) |> 
+  ungroup()
+
+# Sensitivity Table
+save(sens.results, file = "results/tables/ResultsSampleSize-sens.RData")
+suppressWarnings(
+  kable(sens.results, format = "html", digits = 3) |> 
+    kable_styling(full_width = F, position = "left") |> 
+    save_kable("results/tables/ResultsSampleSize-sens.html", self_contained = TRUE)
 )

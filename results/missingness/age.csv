@@ -1,99 +1,99 @@
-"outcome","d.age","r.age","AUC","calibration.slope","calibration.intercept","NB","NBDall","mean.d.age","mean.r.age","sd.d.age","sd.r.age","cor.d.age.bmi","mean.d.bmi","sd.d.bmi"
-"UK DCD dichotomized",30,30,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",30,40,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",30,50,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",30,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",30,60,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",30,70,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",30,80,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",40,30,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",40,40,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",40,50,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",40,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",40,60,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",40,70,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",40,80,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",50,30,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",50,40,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",50,50,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",50,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",50,60,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",50,70,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",50,80,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",57.1,30,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",57.1,40,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",57.1,50,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",57.1,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",57.1,60,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",57.1,70,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",57.1,80,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",60,30,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",60,40,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",60,50,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",60,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",60,60,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",60,70,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",60,80,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",70,30,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",70,40,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",70,50,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",70,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",70,60,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",70,70,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",70,80,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",80,30,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",80,40,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",80,50,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",80,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",80,60,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",80,70,0,0,0,0,0,0,0,0,0,0,0,0
-"UK DCD dichotomized",80,80,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",30,30,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",30,40,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",30,50,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",30,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",30,60,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",30,70,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",30,80,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",40,30,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",40,40,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",40,50,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",40,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",40,60,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",40,70,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",40,80,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",50,30,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",50,40,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",50,50,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",50,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",50,60,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",50,70,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",50,80,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",57.1,30,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",57.1,40,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",57.1,50,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",57.1,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",57.1,60,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",57.1,70,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",57.1,80,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",60,30,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",60,40,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",60,50,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",60,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",60,60,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",60,70,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",60,80,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",70,30,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",70,40,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",70,50,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",70,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",70,60,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",70,70,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",70,80,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",80,30,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",80,40,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",80,50,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",80,57.8,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",80,60,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",80,70,0,0,0,0,0,0,0,0,0,0,0,0
-"Swisstransplant",80,80,0,0,0,0,0,0,0,0,0,0,0,0
+"outcome","d.age","r.age","AUC","calibration.slope","calibration.intercept","NB","NBDall"
+"UK DCD dichotomized",30,30,0,0,0,0,0
+"UK DCD dichotomized",30,40,0,0,0,0,0
+"UK DCD dichotomized",30,50,0,0,0,0,0
+"UK DCD dichotomized",30,57.8,0,0,0,0,0
+"UK DCD dichotomized",30,60,0,0,0,0,0
+"UK DCD dichotomized",30,70,0,0,0,0,0
+"UK DCD dichotomized",30,80,0,0,0,0,0
+"UK DCD dichotomized",40,30,0,0,0,0,0
+"UK DCD dichotomized",40,40,0,0,0,0,0
+"UK DCD dichotomized",40,50,0,0,0,0,0
+"UK DCD dichotomized",40,57.8,0,0,0,0,0
+"UK DCD dichotomized",40,60,0,0,0,0,0
+"UK DCD dichotomized",40,70,0,0,0,0,0
+"UK DCD dichotomized",40,80,0,0,0,0,0
+"UK DCD dichotomized",50,30,0,0,0,0,0
+"UK DCD dichotomized",50,40,0,0,0,0,0
+"UK DCD dichotomized",50,50,0,0,0,0,0
+"UK DCD dichotomized",50,57.8,0,0,0,0,0
+"UK DCD dichotomized",50,60,0,0,0,0,0
+"UK DCD dichotomized",50,70,0,0,0,0,0
+"UK DCD dichotomized",50,80,0,0,0,0,0
+"UK DCD dichotomized",57.1,30,0,0,0,0,0
+"UK DCD dichotomized",57.1,40,0,0,0,0,0
+"UK DCD dichotomized",57.1,50,0,0,0,0,0
+"UK DCD dichotomized",57.1,57.8,0,0,0,0,0
+"UK DCD dichotomized",57.1,60,0,0,0,0,0
+"UK DCD dichotomized",57.1,70,0,0,0,0,0
+"UK DCD dichotomized",57.1,80,0,0,0,0,0
+"UK DCD dichotomized",60,30,0,0,0,0,0
+"UK DCD dichotomized",60,40,0,0,0,0,0
+"UK DCD dichotomized",60,50,0,0,0,0,0
+"UK DCD dichotomized",60,57.8,0,0,0,0,0
+"UK DCD dichotomized",60,60,0,0,0,0,0
+"UK DCD dichotomized",60,70,0,0,0,0,0
+"UK DCD dichotomized",60,80,0,0,0,0,0
+"UK DCD dichotomized",70,30,0,0,0,0,0
+"UK DCD dichotomized",70,40,0,0,0,0,0
+"UK DCD dichotomized",70,50,0,0,0,0,0
+"UK DCD dichotomized",70,57.8,0,0,0,0,0
+"UK DCD dichotomized",70,60,0,0,0,0,0
+"UK DCD dichotomized",70,70,0,0,0,0,0
+"UK DCD dichotomized",70,80,0,0,0,0,0
+"UK DCD dichotomized",80,30,0,0,0,0,0
+"UK DCD dichotomized",80,40,0,0,0,0,0
+"UK DCD dichotomized",80,50,0,0,0,0,0
+"UK DCD dichotomized",80,57.8,0,0,0,0,0
+"UK DCD dichotomized",80,60,0,0,0,0,0
+"UK DCD dichotomized",80,70,0,0,0,0,0
+"UK DCD dichotomized",80,80,0,0,0,0,0
+"Swisstransplant",30,30,0,0,0,0,0
+"Swisstransplant",30,40,0,0,0,0,0
+"Swisstransplant",30,50,0,0,0,0,0
+"Swisstransplant",30,57.8,0,0,0,0,0
+"Swisstransplant",30,60,0,0,0,0,0
+"Swisstransplant",30,70,0,0,0,0,0
+"Swisstransplant",30,80,0,0,0,0,0
+"Swisstransplant",40,30,0,0,0,0,0
+"Swisstransplant",40,40,0,0,0,0,0
+"Swisstransplant",40,50,0,0,0,0,0
+"Swisstransplant",40,57.8,0,0,0,0,0
+"Swisstransplant",40,60,0,0,0,0,0
+"Swisstransplant",40,70,0,0,0,0,0
+"Swisstransplant",40,80,0,0,0,0,0
+"Swisstransplant",50,30,0,0,0,0,0
+"Swisstransplant",50,40,0,0,0,0,0
+"Swisstransplant",50,50,0,0,0,0,0
+"Swisstransplant",50,57.8,0,0,0,0,0
+"Swisstransplant",50,60,0,0,0,0,0
+"Swisstransplant",50,70,0,0,0,0,0
+"Swisstransplant",50,80,0,0,0,0,0
+"Swisstransplant",57.1,30,0,0,0,0,0
+"Swisstransplant",57.1,40,0,0,0,0,0
+"Swisstransplant",57.1,50,0,0,0,0,0
+"Swisstransplant",57.1,57.8,0,0,0,0,0
+"Swisstransplant",57.1,60,0,0,0,0,0
+"Swisstransplant",57.1,70,0,0,0,0,0
+"Swisstransplant",57.1,80,0,0,0,0,0
+"Swisstransplant",60,30,0,0,0,0,0
+"Swisstransplant",60,40,0,0,0,0,0
+"Swisstransplant",60,50,0,0,0,0,0
+"Swisstransplant",60,57.8,0,0,0,0,0
+"Swisstransplant",60,60,0,0,0,0,0
+"Swisstransplant",60,70,0,0,0,0,0
+"Swisstransplant",60,80,0,0,0,0,0
+"Swisstransplant",70,30,0,0,0,0,0
+"Swisstransplant",70,40,0,0,0,0,0
+"Swisstransplant",70,50,0,0,0,0,0
+"Swisstransplant",70,57.8,0,0,0,0,0
+"Swisstransplant",70,60,0,0,0,0,0
+"Swisstransplant",70,70,0,0,0,0,0
+"Swisstransplant",70,80,0,0,0,0,0
+"Swisstransplant",80,30,0,0,0,0,0
+"Swisstransplant",80,40,0,0,0,0,0
+"Swisstransplant",80,50,0,0,0,0,0
+"Swisstransplant",80,57.8,0,0,0,0,0
+"Swisstransplant",80,60,0,0,0,0,0
+"Swisstransplant",80,70,0,0,0,0,0
+"Swisstransplant",80,80,0,0,0,0,0

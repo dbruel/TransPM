@@ -8,7 +8,7 @@ library(tidyverse)
 
 # Simulations to include
 sims.include <- c(
-  "Outcome",
+  # "Outcome",
   "Age",
   "SampleSize",
   "Retp",
@@ -18,7 +18,7 @@ sims.include <- c(
 # Retrieve paths to all the simulation files
 sim.files <- list.files("code/", full.names = TRUE) |> 
   str_subset("Simulation")
-sim.files <- sim.files[str_detect(sim.files, sims.include)]
+sim.files <- sim.files[str_detect(sim.files, paste(sims.include, collapse = "|"))]
 
 # Run all the files
 start.time <- Sys.time()
